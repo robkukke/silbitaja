@@ -1,3 +1,5 @@
+#define LINUX_PORT
+
 #ifdef LINUX_PORT
 #define _stdcall
 #else
