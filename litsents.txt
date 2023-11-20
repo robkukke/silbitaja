@@ -1,0 +1,31 @@
+
+		EESTI KEELE INSTITUUDI TARKVARA
+			LITSENTSILEPING
+
+Autoriõigus (c) Eesti Keele Instituut.
+
+e-post : tarkvara@eki.ee
+URL    : http://www.eki.ee/tarkvara/
+
+Käesoleva litsentsilepinguga on selle tarkvaratoote kasutajail õigus
+tarkvara kasutada mistahes eesmärgil, sh levitada, kopeerida, muuta,
+kasutada muu tarkvara koosseisus ja müüa järgnevatel tingimustel:
+
+1. Käesolev litsentsileping tuleb muutmata kujul säilitada kõigi
+   selle tarkvara koopiate juures.
+
+2. Ei Eesti Keele Instituut ega tarkvara autor(id) ei vastuta mistahes
+   otseste või kaudsete kahjude eest, mis võivad johtuda selle
+   tarkvaratoote kasutamisest.
+
+3. EKI jagab tarkvara sooviga edendada eesti keele uuringuid ja
+   soodustada eesti keele kasutust kiiresti arenevas infotehnoloogias
+   kuid ei võta sellega endale lisakohustusi - EKI ei taga tarkvara
+   sobivust konkreetseks otstarbeks, ei kohustu programmi täiustama
+   või põhjalikumalt kirjeldama kasutatud algoritme. (Mis muidugi ei
+   tähenda, et me seda ei tee).
+
+4. Tarkvara kasutamisel palume sellest teada anda ülaltoodud
+   elektronposti aadressil.
+
+              ------ litsentsilepingu lõpp -----
