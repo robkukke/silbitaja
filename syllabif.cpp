@@ -132,7 +132,8 @@ int init_syllabification()
 
 void strToEstLower(unsigned char *pWord)
 {
-   int wordLength=strlen(pWord);
+   const char *pWordAsConstChar = reinterpret_cast<const char*>(pWord);
+   size_t wordLength=strlen(pWordAsConstChar);
    for(int i=0; i<wordLength; i++){
       if(*(pWord+i)>='A' && *(pWord+i)<='Z')
          *(pWord+i)+=32;
