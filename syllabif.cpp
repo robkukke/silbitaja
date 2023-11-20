@@ -76,7 +76,7 @@ BOOL WINAPI DllEntryPoint(HANDLE hinstDll, DWORD fdwReason, LPVOID lpvReserved)
 
 int is_wowel(char c)
 {
-   return (int)strchr(wowels, c);
+   return strchr(wowels, c) != nullptr;
 }
 
 int init_syllabification()
