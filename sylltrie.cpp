@@ -3,7 +3,7 @@
 #include <values.h>
 
 #include "sylltrie.hpp"
-#include <openfile.h>
+#include "openfile.h"
 
 extern char otilde;
 extern char aumlaut;
