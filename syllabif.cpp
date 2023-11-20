@@ -356,6 +356,16 @@ deleteResults(SyllabificationResult *pFirst)
    }
 }
 
+int main() {
+    init_syllabification();
+    char buf[50];
+    fgets(buf, sizeof(buf), stdin);
+    if(*buf!='-'){
+        SyllabificationResult *pFirst=syllabify(buf);
+        printf("%s\n", pFirst->word);
+    }
+}
+
 #ifdef EXE_PRJ
 main()
 {
