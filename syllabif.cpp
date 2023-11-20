@@ -245,7 +245,8 @@ syllabify(char *pWord)
    numWordLimits++;
 
    //set to lowercase
-   strToEstLower(wordBuf);
+   auto *wordBufAsUnsignedChar = reinterpret_cast<unsigned char*>(wordBuf);
+   strToEstLower(wordBufAsUnsignedChar);
 
    //find exceptional syllable limits in simple words
    //consider limits of simple words as exceptional syllable limits
