@@ -121,7 +121,7 @@ Trie::Trie() : fpRoot(0), fShortestWordLength(MAXINT)
 {
 }
 
-void Trie::init(char *fileName)
+void Trie::init(const char *fileName)
 {
    FILE *inFile;
    if(!(inFile=openAtLoc(fileName, "r")))

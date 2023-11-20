@@ -24,7 +24,7 @@ class Trie
 public:
    Trie();
    ~Trie();
-   void init(char *fileName);
+   void init(const char *fileName);
    int valueOf(char *pWord, char *pRuleToo);
    int shortestWordLength();
 private:
