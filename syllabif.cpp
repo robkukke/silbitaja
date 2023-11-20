@@ -92,7 +92,7 @@ int init_syllabification()
    while(fgets(buf, 40, iniFile)){
       char *ident=(strtok(buf, "= \n"));
       char *values=(strtok(0, "= \n"));
-      if(ident && values && strlen(values)==2){
+      if(ident && values){
          upperEstChars[numItems]=values[0];
          lowerEstChars[numItems]=values[1];
          numItems++;
@@ -358,6 +358,7 @@ deleteResults(SyllabificationResult *pFirst)
 
 int main() {
     init_syllabification();
+    gExcTrie.init("syll.exc");
     char buf[50];
     fgets(buf, sizeof(buf), stdin);
     if(*buf!='-'){

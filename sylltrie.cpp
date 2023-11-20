@@ -38,7 +38,7 @@ TrieNode::~TrieNode(){
 
 int TrieNode::valueOf(char *pWord, char *pRuleToo)
 {
-   if(*pWord==0 || !fpArray){ //end of the given word or trie branch
+   if(*pWord==0 || *pWord==10 || *pWord==13 || *pWord==32 || !fpArray){ //end of the given word or trie branch
       *pRuleToo=fRuleToo;
       return fValue;
    }
@@ -130,8 +130,8 @@ void Trie::init(const char *fileName)
       fpRoot=new TrieNode();
       char buf[80];
       while(fgets(buf, 80, inFile)){
-         char *pWord=strtok(buf, " \n");
-         char *pRuleToo=strtok(0, " \n");
+         char *pWord=strtok(buf, " \r\n");
+         char *pRuleToo=strtok(0, " \r\n");
          if(pWord){
             int wlength=strlen(pWord)-1;
             if(wlength<fShortestWordLength)
