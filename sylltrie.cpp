@@ -89,6 +89,9 @@ void TrieNode::add(char *pWord, char val, char ruleToo)
 
 char TrieNode::mapChar(unsigned char c)
 {
+   if (c >= 48 && c <= 57) {
+       return c;
+   }
    if(c>'z' || c<'a'){
       if(c==(unsigned char)otilde)
          return 'z'-'a'+1;

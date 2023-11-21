@@ -8,6 +8,8 @@
 #endif
 #endif
 
+#include <iostream>
+#include <sstream>
 #include <stdio.h>
 #include <string.h>
 
@@ -356,15 +358,30 @@ deleteResults(SyllabificationResult *pFirst)
    }
 }
 
-int main() {
-    init_syllabification();
-    gExcTrie.init("syll.exc");
-    char buf[50];
-    fgets(buf, sizeof(buf), stdin);
-    if(*buf!='-'){
-        SyllabificationResult *pFirst=syllabify(buf);
-        printf("%s\n", pFirst->word);
+void syllabifyIndividualWords(const std::string& input) {
+    std::istringstream iss(input);
+    std::string word;
+
+    while (iss >> word) {
+        char* buf = &word[0];
+
+        if (*buf != '-') {
+            SyllabificationResult* pFirst = syllabify(buf);
+            printf("%s\n", pFirst->word);
+            deleteResults(pFirst);
+        }
     }
+}
+
+int main() {
+    initSyllabification();
+
+    std::string input;
+    std::getline(std::cin, input);
+
+    syllabifyIndividualWords(input);
+
+    return 0;
 }
 
 #ifdef EXE_PRJ
