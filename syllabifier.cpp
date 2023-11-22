@@ -373,11 +373,10 @@ void syllabifyIndividualWords(const std::string &input) {
 }
 
 int main() {
-    initSyllabification();
-
     std::string input;
-    std::getline(std::cin, input);
 
+    initSyllabification();
+    std::getline(std::cin, input);
     syllabifyIndividualWords(input);
 
     return 0;
