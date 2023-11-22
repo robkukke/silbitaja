@@ -1,6 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#ifndef OPEN_FILE_HPP
+#define OPEN_FILE_HPP
+
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 const char * const kLocVar="EST_MORPHO_DATA";
 
@@ -28,3 +31,5 @@ inline FILE* openAtLoc(const char *fileName, const char *mode,
 
   return ff;
 }
+
+#endif
