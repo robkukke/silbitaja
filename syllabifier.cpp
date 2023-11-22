@@ -24,14 +24,14 @@ int init_syllabification();
 
 inline 
 SyllabificationResult::SyllabificationResult() : 
-numSyllables(0), next(0), lastPlace(0)
+numSyllables(0), next(nullptr), lastPlace(0)
 {
   memset(word, '\0', 40);
 }
 
 inline 
 SyllabificationResult::SyllabificationResult(SyllabificationResult *pRes) :
-  numSyllables(pRes->numSyllables), next(0), lastPlace(pRes->lastPlace)
+  numSyllables(pRes->numSyllables), next(nullptr), lastPlace(pRes->lastPlace)
 {
   strcpy(word, pRes->word);
 }
@@ -59,7 +59,7 @@ int init_syllabification()
    int numItems=0;
    while(fgets(buf, 40, iniFile)){
       char *ident=(strtok(buf, "= \n"));
-      char *values=(strtok(0, "= \n"));
+      char *values=(strtok(nullptr, "= \n"));
       if(ident && values){
          upperEstChars[numItems]=values[0];
          lowerEstChars[numItems]=values[1];
@@ -190,7 +190,7 @@ syllabify(char *pWord)
    int wordLength=strlen(pWord);
    //Exception!
    if(wordLength>kResultLength-1)
-      return 0;
+      return nullptr;
    char wordBuf[kResultLength];
 
    //find limits of @-separated simple words in the compound word
@@ -200,7 +200,7 @@ syllabify(char *pWord)
          numWordLimits++;
          //Exception!
          if(numWordLimits==kMaxSyllables)
-            return 0;
+            return nullptr;
       }
       else
          wordBuf[i-numWordLimits]=*(pWord+i);
@@ -228,7 +228,7 @@ syllabify(char *pWord)
          if(place==-2){ //something was wrong in exceptions (bad character in simpleWord)
           fprintf(stderr, "ERROR: "
                           "Unknown character in the input string \"%s\"!\n", pWord);
-          return 0;
+          return nullptr;
          }
          //an exceptional syllable limit found!
          if(place>=0 && place+i>0){
@@ -241,7 +241,7 @@ syllabify(char *pWord)
               numExceptions++;
               //Exception!
               if(numExceptions==kMaxSyllables)
-                 return 0;
+                 return nullptr;
             }
          }
       }
@@ -250,7 +250,7 @@ syllabify(char *pWord)
       numExceptions++;
       //Exception!
       if(numExceptions==kMaxSyllables)
-         return 0;
+         return nullptr;
       prevWordLimit=wordLimits[k];
    }
 
@@ -275,7 +275,7 @@ syllabify(char *pWord)
             pCur->numSyllables+=syllabifySimple(elementaryPart, pCur->word+strlen(pCur->word),
                                                 kResultLength-strlen(pCur->word));
           }
-          catch(char *s){ return 0; }
+          catch(char *s){ return nullptr; }
           pCur->lastPlace=exceptions[i][0];
 
           if(i!=numExceptions-1){
