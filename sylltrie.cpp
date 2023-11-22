@@ -12,7 +12,7 @@ extern char uumlaut;
 extern char scaron;
 extern char zcaron;
 
-int is_wowel(char c);
+int isVowel(char c);
 
 static const int kAlphabetLength='z'-'a'+11;
 static const int kWowelPos=kAlphabetLength-4;
@@ -51,7 +51,7 @@ int TrieNode::valueOf(char *pWord, char *pRuleToo)
       if(fpArray[indx]) //current character itself supported
          val=fpArray[indx]->valueOf(pWord+1, pRuleToo); //test next character
       int bWowel=0;
-      if(val==-1 && (bWowel=is_wowel(*pWord)) && fpArray[kWowelPos]) //test general wowel's case
+      if(val==-1 && (bWowel=isVowel(*pWord)) && fpArray[kWowelPos]) //test general wowel's case
          val=fpArray[kWowelPos]->valueOf(pWord+1, pRuleToo);
       if(val==-1 && !bWowel && *pWord!='#' && fpArray[kConsPos]) //test general consonant's case
          val=fpArray[kConsPos]->valueOf(pWord+1, pRuleToo);
