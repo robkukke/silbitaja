@@ -5,8 +5,7 @@
 #include <cstdlib>
 #include <cstring>
 
-inline FILE* openAtLoc(const char *fileName, const char *mode, 
-		       bool mustExist = true)
+inline FILE* openAtLoc(const char *fileName, const char *mode)
 {
   const char *szLoc = ".";
 
@@ -17,7 +16,7 @@ inline FILE* openAtLoc(const char *fileName, const char *mode,
   strcat(szFullName, fileName);
 
   FILE *ff = fopen(szFullName, mode);
-  if(!ff && mustExist) {
+  if(!ff) {
     fprintf(stderr, "ERROR: Cannot open %s.\n", szFullName);
     exit(-1);
   }
