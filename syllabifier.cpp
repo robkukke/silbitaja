@@ -5,7 +5,7 @@
 
 #include "open_file.hpp"
 #include "syllabifier_result.hpp"
-#include "sylltrie.hpp"
+#include "syllabifier_trie.hpp"
 
 static char *vowels = new char[11];
 static char *lowerEstChars = new char[7];

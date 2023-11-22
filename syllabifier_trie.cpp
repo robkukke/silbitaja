@@ -2,7 +2,7 @@
 #include <string.h>
 #include <values.h>
 
-#include "sylltrie.hpp"
+#include "syllabifier_trie.hpp"
 #include "open_file.hpp"
 
 extern char otilde;
