@@ -56,7 +56,7 @@ SyllabificationResult::SyllabificationResult(SyllabificationResult *pRes) :
 extern "C" void initSyllabification()
 {
   init_syllabification();
-  gExcTrie.init("syll.exc");
+  gExcTrie.init("syllabifier.exceptions");
 }
 
 #else
