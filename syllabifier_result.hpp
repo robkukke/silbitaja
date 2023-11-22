@@ -4,7 +4,7 @@
 const int kResultLength = 128;
 
 struct SyllabificationResult {
-    char word[kResultLength];
+    char word[kResultLength]{};
     int numSyllables;
     SyllabificationResult *next;
     size_t lastPlace;
