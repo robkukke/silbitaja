@@ -1,31 +1,31 @@
 
-		EESTI KEELE INSTITUUDI TARKVARA
-			LITSENTSILEPING
+        EESTI KEELE INSTITUUDI TARKVARA
+            LITSENTSILEPING
 
-Autoriıigus (c) Eesti Keele Instituut.
+Autori√µigus (c) Eesti Keele Instituut.
 
 e-post : tarkvara@eki.ee
-URL    : http://www.eki.ee/tarkvara/
+URL    : https://www.eki.ee/tarkvara/
 
-K‰esoleva litsentsilepinguga on selle tarkvaratoote kasutajail ıigus
-tarkvara kasutada mistahes eesm‰rgil, sh levitada, kopeerida, muuta,
-kasutada muu tarkvara koosseisus ja m¸¸a j‰rgnevatel tingimustel:
+K√§esoleva litsentsilepinguga on selle tarkvaratoote kasutajail √µigus
+tarkvara kasutada mistahes eesm√§rgil, sh levitada, kopeerida, muuta,
+kasutada muu tarkvara koosseisus ja m√º√ºa j√§rgnevatel tingimustel:
 
-1. K‰esolev litsentsileping tuleb muutmata kujul s‰ilitada kıigi
+1. K√§esolev litsentsileping tuleb muutmata kujul s√§ilitada k√µigi
    selle tarkvara koopiate juures.
 
 2. Ei Eesti Keele Instituut ega tarkvara autor(id) ei vastuta mistahes
-   otseste vıi kaudsete kahjude eest, mis vıivad johtuda selle
+   otseste v√µi kaudsete kahjude eest, mis v√µivad johtuda selle
    tarkvaratoote kasutamisest.
 
 3. EKI jagab tarkvara sooviga edendada eesti keele uuringuid ja
    soodustada eesti keele kasutust kiiresti arenevas infotehnoloogias
-   kuid ei vıta sellega endale lisakohustusi - EKI ei taga tarkvara
-   sobivust konkreetseks otstarbeks, ei kohustu programmi t‰iustama
-   vıi pıhjalikumalt kirjeldama kasutatud algoritme. (Mis muidugi ei
-   t‰henda, et me seda ei tee).
+   kuid ei v√µta sellega endale lisakohustusi - EKI ei taga tarkvara
+   sobivust konkreetseks otstarbeks, ei kohustu programmi t√§iustama
+   v√µi p√µhjalikumalt kirjeldama kasutatud algoritme. (Mis muidugi ei
+   t√§henda, et me seda ei tee).
 
-4. Tarkvara kasutamisel palume sellest teada anda ¸laltoodud
+4. Tarkvara kasutamisel palume sellest teada anda √ºlaltoodud
    elektronposti aadressil.
 
-              ------ litsentsilepingu lıpp -----
+              ------ litsentsilepingu l√µpp ------
