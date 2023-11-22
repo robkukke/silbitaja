@@ -204,8 +204,7 @@ syllabify(char *pWord)
       }
       else
          wordBuf[i-numWordLimits]=*(pWord+i);
-   wordLength-=numWordLimits;
-   wordLimits[numWordLimits]=strlen(wordBuf);
+    wordLimits[numWordLimits]=strlen(wordBuf);
    numWordLimits++;
 
    //set to lowercase
@@ -235,7 +234,7 @@ syllabify(char *pWord)
          	size_t posn=prevWordLimit+place+i-1;
             //test the correct order of an exceptional syllable limit
             if(!numExceptions ||
-               numExceptions && exceptions[numExceptions-1][0]<posn-1){
+               exceptions[numExceptions - 1][0] < posn - 1){
               exceptions[numExceptions][0]=posn;
               exceptions[numExceptions][1]= reinterpret_cast<size_t>(reinterpret_cast<unsigned char *>(ruleToo));
               numExceptions++;
