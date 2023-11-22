@@ -48,14 +48,14 @@ int TrieNode::valueOf(char *pWord, char *pRuleToo)
         return -2;
       *pRuleToo=0;
       if(fpArray[indx]) //current character itself supported
-         val=fpArray[indx]->valueOf(pWord+1, pRuleToo); //test next character
+         val=static_cast<char>(fpArray[indx]->valueOf(pWord+1, pRuleToo)); //test next character
       int bWowel=0;
       if(val==-1 && (bWowel=isVowel(*pWord)) && fpArray[kWowelPos]) //test general wowel's case
-         val=fpArray[kWowelPos]->valueOf(pWord+1, pRuleToo);
+         val=static_cast<char>(fpArray[kWowelPos]->valueOf(pWord+1, pRuleToo));
       if(val==-1 && !bWowel && *pWord!='#' && fpArray[kConsPos]) //test general consonant's case
-         val=fpArray[kConsPos]->valueOf(pWord+1, pRuleToo);
+         val=static_cast<char>(fpArray[kConsPos]->valueOf(pWord+1, pRuleToo));
       if(val==-1 && *pWord!='#' && fpArray[kGenPos])  //test general character (but not #)
-         val=fpArray[kGenPos]->valueOf(pWord+1, pRuleToo);
+         val=static_cast<char>(fpArray[kGenPos]->valueOf(pWord+1, pRuleToo));
       return val;
    }
 }
@@ -74,7 +74,7 @@ void TrieNode::add(char *pWord, char val, char ruleToo)
          fpArray=new TrieNode*[kAlphabetLength];
          memset(fpArray, 0, kAlphabetLength*sizeof(TrieNode*));
       }
-      int indx=mapChar(*pWord);
+      char indx=mapChar(*pWord);
       if(indx<0){
         fprintf(stderr, "ERROR: "
                         "Unknown character: '%c' in the exceptions file!\n", *pWord);
@@ -89,7 +89,7 @@ void TrieNode::add(char *pWord, char val, char ruleToo)
 char TrieNode::mapChar(unsigned char c)
 {
    if (c >= 48 && c <= 57) {
-       return c;
+       return static_cast<char>(c);
    }
    if(c>'z' || c<'a'){
       if(c==(unsigned char)otilde)
@@ -116,7 +116,7 @@ char TrieNode::mapChar(unsigned char c)
          return -1;
    }
    else
-      return c-'a';
+      return static_cast<char>(c-'a');
 }
 
 Trie::Trie() : fpRoot(nullptr), fShortestWordLength(MAXINT)
@@ -135,9 +135,9 @@ void Trie::init(const char *fileName)
          char *pWord=strtok(buf, " \r\n");
          char *pRuleToo=strtok(nullptr, " \r\n");
          if(pWord){
-            int wlength=strlen(pWord)-1;
+            size_t wlength=strlen(pWord)-1;
             if(wlength<fShortestWordLength)
-               fShortestWordLength=wlength;
+               fShortestWordLength=static_cast<int>(wlength);
             char val=(char)(strchr(pWord, '@')-pWord);
             char ruleToo=pRuleToo? 1: 0;
             fpRoot->add(pWord, val, ruleToo);
