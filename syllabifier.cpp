@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <exception>
 #include <iostream>
 #include <sstream>
 
@@ -120,7 +121,7 @@ int syllabifySimple(const char *input, char *output, int outputLength)
    int numSyllables=0;
    size_t inputLength=strlen(input);
    if(inputLength>kResultLength-1 || inputLength>outputLength-1)
-      throw "too long string";
+      throw std::runtime_error("ERROR: Input too long.\n");
    strcpy(toSyllabify, input);
    strcat(toSyllabify, "#");
    int numPrevWowels=0;
@@ -165,7 +166,7 @@ int syllabifySimple(const char *input, char *output, int outputLength)
 
       //Exception!
       if(numSyllables==kMaxSyllables)
-         throw "too many syllables";
+         throw std::runtime_error("ERROR: Too many syllables.\n");
    }
 
    int copied=0;
