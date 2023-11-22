@@ -4,8 +4,6 @@
 
 const char * const kLocVar="EST_MORPHO_DATA";
 
-//#ifdef LINUX_PORT
-
 inline FILE* openAtLoc(const char *fileName, const char *mode, 
 		       bool mustExist = true)
 {
@@ -22,8 +20,6 @@ inline FILE* openAtLoc(const char *fileName, const char *mode,
     strcat(szFullName, "/");
   strcat(szFullName, fileName);
 
-  //  printf("Opening %s\n", szFullName);
-
   FILE *ff = fopen(szFullName, mode);
   if(!ff && mustExist) {
     fprintf(stderr, "ERROR: Cannot open %s.\n", szFullName);
@@ -32,13 +28,3 @@ inline FILE* openAtLoc(const char *fileName, const char *mode,
 
   return ff;
 }
-
-//#else
-
-//inline FILE* openAtLoc(const char *fileName, const char *mode, 
-//		       bool mustExist = true)
-//{
-//  return fopen(fileName, mode);
-//}
-
-//#endif
