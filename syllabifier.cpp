@@ -1,13 +1,10 @@
+#include <cstdio>
 #include <iostream>
 #include <sstream>
-#include <stdio.h>
-#include <string.h>
 
-#include "syllabifier_result.hpp"
-
-#include "sylltrie.hpp"
 #include "open_file.hpp"
-
+#include "syllabifier_result.hpp"
+#include "sylltrie.hpp"
 
 static char *wowels=new char[11];
 static char *lowerEstChars=new char[7];
