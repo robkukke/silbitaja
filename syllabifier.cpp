@@ -1,12 +1,3 @@
-#define LINUX_PORT
-
-#ifdef LINUX_PORT
-#else
-#ifndef EXE_PRJ
-#include <windows.h>
-#endif
-#endif
-
 #include <iostream>
 #include <sstream>
 #include <stdio.h>
@@ -48,32 +39,11 @@ SyllabificationResult::SyllabificationResult(SyllabificationResult *pRes) :
   strcpy(word, pRes->word);
 }
 
-
-
-#ifdef LINUX_PORT
-
 extern "C" void initSyllabification()
 {
   init_syllabification();
   gExcTrie.init("syllabifier.exceptions");
 }
-
-#else
-
-#ifndef EXE_PRJ
-
-BOOL WINAPI DllEntryPoint(HANDLE hinstDll, DWORD fdwReason, LPVOID lpvReserved)
-{
-	if(fdwReason==DLL_PROCESS_ATTACH){
-    int rc=init_syllabification();
-    gExcTrie.init("syll.exc");
-  }
-  return 1;
-}
-
-#endif //EXE_PRJ
-
-#endif //LINUX_PORT
 
 int is_wowel(char c)
 {
@@ -215,11 +185,7 @@ int syllabifySimple(const char *input, char *output, int outputLength)
    return numSyllables;
 }
 
-#ifdef EXE_PRJ
-SyllabificationResult *
-#else
 extern "C" SyllabificationResult*
-#endif
 syllabify(char *pWord)
 {
    int exceptions[kMaxSyllables][2], wordLimits[kMaxSyllables];
@@ -341,11 +307,7 @@ syllabify(char *pWord)
    return pFirstResult;
 }
 
-#ifdef EXE_PRJ
-void
-#else
 extern "C" void
-#endif
 deleteResults(SyllabificationResult *pFirst)
 {
    SyllabificationResult *pCur, *pTmp;
@@ -382,26 +344,3 @@ int main() {
 
     return 0;
 }
-
-#ifdef EXE_PRJ
-main()
-{
-  init_syllabification();
-  gExcTrie.init("syll.exc");
-
-  char buf[100];
-  do {
-    printf("Sona?\n");
-    scanf("%s", buf);
-    if(*buf!='-'){
-      printf("\nSilbid:\n");
-      SyllabificationResult *pFirst=syllabify(buf);
-      for(SyllabificationResult *pCur=pFirst; pCur; pCur=pCur->next)
-        printf("%s  (%d)\n", pCur->word, pCur->numSyllables);
-
-      deleteResults(pFirst);
-    }
-  }
-  while(*buf!='-');
-}
-#endif
