@@ -324,8 +324,11 @@ void syllabifyIndividualWords(const std::string& input) {
 
         if (*buf != '-') {
             SyllabificationResult* pFirst = syllabify(buf);
-            printf("%s\n", pFirst->word);
-            deleteResults(pFirst);
+
+            if (pFirst != nullptr) {
+                printf("%s\n", pFirst->word);
+                deleteResults(pFirst);
+            }
         }
     }
 }
