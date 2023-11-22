@@ -45,7 +45,7 @@ int init_syllabification() {
     strcpy(vowels, "aeiouy");
 
     size_t numVowels = strlen(vowels);
-    FILE *specialCharsFile = openAtLoc("syllabif.ini", "r");
+    FILE *specialCharsFile = openAtLoc("syllabifier.specialchars", "r");
 
     if (!specialCharsFile) {
         return 1;
