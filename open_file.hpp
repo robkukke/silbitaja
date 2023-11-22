@@ -5,17 +5,10 @@
 #include <cstdlib>
 #include <cstring>
 
-const char * const kLocVar="EST_MORPHO_DATA";
-
 inline FILE* openAtLoc(const char *fileName, const char *mode, 
 		       bool mustExist = true)
 {
-  const char *szLoc = getenv(kLocVar);
-  if(!szLoc) {
-    fprintf(stderr, "WARNING: %s is not set, defaulting to current directory\n", 
-	    kLocVar);
-    szLoc = ".";
-  }
+  const char *szLoc = ".";
 
   char szFullName[512];
   strcpy(szFullName, szLoc);
