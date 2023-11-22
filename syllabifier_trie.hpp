@@ -26,7 +26,7 @@ public:
    ~Trie();
    void init(const char *fileName);
    int valueOf(char *pWord, char *pRuleToo);
-   int shortestWordLength();
+   int shortestWordLength() const;
 private:
    TrieNode *fpRoot;
    int fShortestWordLength;
