@@ -19,7 +19,7 @@ static const int kConsPos=kAlphabetLength-3;
 static const int kGenPos=kAlphabetLength-2;
 
 
-TrieNode::TrieNode():fpArray(0),fValue(-1), fRuleToo(0)
+TrieNode::TrieNode():fpArray(nullptr),fValue(-1), fRuleToo(0)
 {
 }
 
@@ -28,10 +28,10 @@ TrieNode::~TrieNode(){
       for(int i=0; i<kAlphabetLength; i++)
          if(fpArray[i]){
             delete fpArray[i];
-            fpArray[i]=0;
+            fpArray[i]=nullptr;
          }
       delete fpArray;
-      fpArray=0;
+      fpArray=nullptr;
    }
 }
 
@@ -119,7 +119,7 @@ char TrieNode::mapChar(unsigned char c)
       return c-'a';
 }
 
-Trie::Trie() : fpRoot(0), fShortestWordLength(MAXINT)
+Trie::Trie() : fpRoot(nullptr), fShortestWordLength(MAXINT)
 {
 }
 
@@ -133,7 +133,7 @@ void Trie::init(const char *fileName)
       char buf[80];
       while(fgets(buf, 80, inFile)){
          char *pWord=strtok(buf, " \r\n");
-         char *pRuleToo=strtok(0, " \r\n");
+         char *pRuleToo=strtok(nullptr, " \r\n");
          if(pWord){
             int wlength=strlen(pWord)-1;
             if(wlength<fShortestWordLength)
