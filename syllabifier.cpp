@@ -20,7 +20,7 @@ char zcaron = 0;
 
 Trie gExcTrie;
 
-int init_syllabification();
+int configureSyllabification();
 
 inline SyllabificationResult::SyllabificationResult() : numSyllables(0), next(nullptr), lastPlace(0) {
     memset(word, '\0', 40);
@@ -33,7 +33,7 @@ inline SyllabificationResult::SyllabificationResult(SyllabificationResult *pRes)
 }
 
 void initSyllabification() {
-    init_syllabification();
+    configureSyllabification();
     gExcTrie.init("syllabifier.exceptions");
 }
 
@@ -41,7 +41,7 @@ int isVowel(char c) {
     return strchr(vowels, c) != nullptr;
 }
 
-int init_syllabification() {
+int configureSyllabification() {
     strcpy(vowels, "aeiouy");
 
     size_t numVowels = strlen(vowels);
