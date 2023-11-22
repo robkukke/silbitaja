@@ -32,7 +32,7 @@ inline SyllabificationResult::SyllabificationResult(SyllabificationResult *pRes)
     strcpy(word, pRes->word);
 }
 
-extern "C" void initSyllabification() {
+void initSyllabification() {
     init_syllabification();
     gExcTrie.init("syllabifier.exceptions");
 }
@@ -190,7 +190,7 @@ int syllabifySimple(const char *input, char *output, int outputLength) {
     return numSyllables;
 }
 
-extern "C" SyllabificationResult *syllabify(char *pWord) {
+SyllabificationResult *syllabify(char *pWord) {
     size_t exceptions[kMaxSyllables][2], wordLimits[kMaxSyllables];
     size_t numExceptions = 0, numWordLimits = 0;
     size_t wordLength = strlen(pWord);
@@ -342,7 +342,7 @@ extern "C" SyllabificationResult *syllabify(char *pWord) {
     return pFirstResult;
 }
 
-extern "C" void deleteResults(SyllabificationResult *pFirst) {
+void deleteResults(SyllabificationResult *pFirst) {
     SyllabificationResult *pCur, *pTmp;
     pCur = (SyllabificationResult *) pFirst;
 

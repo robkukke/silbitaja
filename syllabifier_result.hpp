@@ -14,10 +14,10 @@ struct SyllabificationResult {
     explicit SyllabificationResult(SyllabificationResult *pRes);
 };
 
-extern "C" {
 SyllabificationResult *syllabify(char *pWord);
+
 void deleteResults(SyllabificationResult *pFirst);
+
 void initSyllabification();
-}
 
 #endif
