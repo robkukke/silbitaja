@@ -1,7 +1,6 @@
 #define LINUX_PORT
 
 #ifdef LINUX_PORT
-#define _stdcall
 #else
 #ifndef EXE_PRJ
 #include <windows.h>
@@ -219,7 +218,7 @@ int syllabifySimple(const char *input, char *output, int outputLength)
 #ifdef EXE_PRJ
 SyllabificationResult *
 #else
-extern "C" SyllabificationResult* _stdcall
+extern "C" SyllabificationResult*
 #endif
 syllabify(char *pWord)
 {
@@ -345,7 +344,7 @@ syllabify(char *pWord)
 #ifdef EXE_PRJ
 void
 #else
-extern "C" void _stdcall
+extern "C" void
 #endif
 deleteResults(SyllabificationResult *pFirst)
 {

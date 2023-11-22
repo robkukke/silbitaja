@@ -17,9 +17,9 @@ struct SyllabificationResult
 
 extern "C" {
 
-SyllabificationResult* _stdcall syllabify(char *pWord);
+SyllabificationResult* syllabify(char *pWord);
 
-void _stdcall deleteResults(SyllabificationResult *pFirst);
+void deleteResults(SyllabificationResult *pFirst);
 
 void initSyllabification();
 
