@@ -16,7 +16,7 @@
 #include "syll_exp.h"
 
 #include "sylltrie.hpp"
-#include "openfile.h"
+#include "open_file.hpp"
 
 
 static char *wowels=new char[11];
