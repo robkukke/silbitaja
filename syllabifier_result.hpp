@@ -7,7 +7,7 @@ struct SyllabificationResult {
     char word[kResultLength];
     int numSyllables;
     SyllabificationResult *next;
-    int lastPlace;
+    size_t lastPlace;
 
     SyllabificationResult();
 

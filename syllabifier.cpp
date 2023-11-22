@@ -50,7 +50,7 @@ int is_wowel(char c)
 int init_syllabification()
 {
    strcpy(wowels, "aeiouy");
-   int numWowels=strlen(wowels);
+   size_t numWowels=strlen(wowels);
 
    FILE *iniFile=openAtLoc("syllabif.ini", "r");
    if(!iniFile)
@@ -118,7 +118,7 @@ int syllabifySimple(const char *input, char *output, int outputLength)
    char toSyllabify[kResultLength];
    int syllLimits[kMaxSyllables];
    int numSyllables=0;
-   int inputLength=strlen(input);
+   size_t inputLength=strlen(input);
    if(inputLength>kResultLength-1 || inputLength>outputLength-1)
       throw "too long string";
    strcpy(toSyllabify, input);
@@ -185,9 +185,9 @@ int syllabifySimple(const char *input, char *output, int outputLength)
 extern "C" SyllabificationResult*
 syllabify(char *pWord)
 {
-   int exceptions[kMaxSyllables][2], wordLimits[kMaxSyllables];
-   int numExceptions=0, numWordLimits=0;
-   int wordLength=strlen(pWord);
+   size_t exceptions[kMaxSyllables][2], wordLimits[kMaxSyllables];
+   size_t numExceptions=0, numWordLimits=0;
+   size_t wordLength=strlen(pWord);
    //Exception!
    if(wordLength>kResultLength-1)
       return nullptr;
@@ -214,14 +214,14 @@ syllabify(char *pWord)
 
    //find exceptional syllable limits in simple words
    //consider limits of simple words as exceptional syllable limits
-   int prevWordLimit=0;
+   size_t prevWordLimit=0;
    for(int k=0; k<numWordLimits; k++){
       char simpleWord[kResultLength];
       strcpy(simpleWord, "#");
       strncat(simpleWord, wordBuf+prevWordLimit, wordLimits[k]-prevWordLimit);
       simpleWord[wordLimits[k]-prevWordLimit+1]='\0';
       strcat(simpleWord, "#");
-      int simpleWordLength=strlen(simpleWord);
+      size_t simpleWordLength=strlen(simpleWord);
       for(int i=0; i+gExcTrie.shortestWordLength()<=simpleWordLength; i++){
          char ruleToo=0;
          int place=gExcTrie.valueOf(simpleWord+i, &ruleToo);
@@ -232,12 +232,12 @@ syllabify(char *pWord)
          }
          //an exceptional syllable limit found!
          if(place>=0 && place+i>0){
-         	int posn=prevWordLimit+place+i-1;
+         	size_t posn=prevWordLimit+place+i-1;
             //test the correct order of an exceptional syllable limit
             if(!numExceptions ||
                numExceptions && exceptions[numExceptions-1][0]<posn-1){
               exceptions[numExceptions][0]=posn;
-              exceptions[numExceptions][1]=ruleToo;
+              exceptions[numExceptions][1]= reinterpret_cast<size_t>(reinterpret_cast<unsigned char *>(ruleToo));
               numExceptions++;
               //Exception!
               if(numExceptions==kMaxSyllables)
@@ -273,7 +273,7 @@ syllabify(char *pWord)
           elementaryPart[exceptions[i][0]-pCur->lastPlace]='\0';
           try {
             pCur->numSyllables+=syllabifySimple(elementaryPart, pCur->word+strlen(pCur->word),
-                                                kResultLength-strlen(pCur->word));
+                                                static_cast<int>(kResultLength-strlen(pCur->word)));
           }
           catch(char *s){ return nullptr; }
           pCur->lastPlace=exceptions[i][0];
@@ -292,7 +292,7 @@ syllabify(char *pWord)
 
    //restore original caracter cases
    for(SyllabificationResult *pCur=pFirstResult; pCur; pCur=pCur->next){
-      int resultLength=strlen(pCur->word);
+      size_t resultLength=strlen(pCur->word);
       for(int i=0, j=0; i<resultLength; i++, j++){
          if(pCur->word[j]=='-' && *(pWord+i)!='@' && *(pWord+i)!='+' && *(pWord+i)!='-')
             j++;
