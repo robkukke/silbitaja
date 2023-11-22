@@ -1,7 +1,7 @@
-#ifndef __TRIE_HPP__
-#define __TRIE_HPP__
+#ifndef SYLLABIFIER_TRIE_HPP
+#define SYLLABIFIER_TRIE_HPP
 
-#include <string.h>
+#include <cstring>
 
 const int kMaxSyllables=32;
 
