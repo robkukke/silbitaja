@@ -1,9 +1,8 @@
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
 #include <values.h>
 
-#include "syllabifier_trie.hpp"
 #include "open_file.hpp"
+#include "syllabifier_trie.hpp"
 
 extern char otilde;
 extern char aumlaut;
