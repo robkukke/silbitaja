@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "syll_exp.h"
+#include "syllabifier_result.hpp"
 
 #include "sylltrie.hpp"
 #include "open_file.hpp"
